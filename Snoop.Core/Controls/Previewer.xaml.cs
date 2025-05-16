@@ -120,7 +120,7 @@ public partial class Previewer
 
     private void HandleCanMagnify(object sender, CanExecuteRoutedEventArgs e)
     {
-        e.CanExecute = this.Target as Visual is not null;
+        e.CanExecute = this.Target is Visual;
         e.Handled = true;
     }
 
@@ -133,7 +133,7 @@ public partial class Previewer
 
     private void HandleCanScreenshot(object sender, CanExecuteRoutedEventArgs e)
     {
-        e.CanExecute = this.Target as Visual is not null;
+        e.CanExecute = this.Target is Visual;
         e.Handled = true;
     }
 
