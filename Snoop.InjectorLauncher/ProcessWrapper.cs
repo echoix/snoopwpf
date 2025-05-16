@@ -10,7 +10,11 @@ public class ProcessWrapper
     {
         this.Process = process ?? throw new ArgumentNullException(nameof(process));
         this.Id = process.Id;
-        this.Handle = NativeMethods.OpenProcess(NativeMethods.ProcessAccessFlags.All, false, process.Id);
+        this.Handle = NativeMethods.OpenProcess(
+            NativeMethods.ProcessAccessFlags.All,
+            false,
+            process.Id
+        );
         this.WindowHandle = windowHandle;
 
         this.Architecture = NativeMethods.GetArchitectureWithoutException(this.Process);
@@ -101,26 +105,29 @@ public class ProcessWrapper
             {
                 wpfGFXVersion = FileVersionInfo.GetVersionInfo(module.szExePath);
             }
-            else if (module.szModule.StartsWith("System.Runtime.dll", StringComparison.OrdinalIgnoreCase))
+            else if (
+                module.szModule.StartsWith("System.Runtime.dll", StringComparison.OrdinalIgnoreCase)
+            )
             {
                 systemRuntimeVersion = FileVersionInfo.GetVersionInfo(module.szExePath);
             }
         }
 
-        var relevantVersionInfo = systemRuntimeVersion
-            ?? wpfGFXVersion;
+        var relevantVersionInfo = systemRuntimeVersion ?? wpfGFXVersion;
 
         if (relevantVersionInfo is null)
         {
-            return "net462";
+            return "net472";
         }
 
         var productVersion = TryParseVersion(relevantVersionInfo.ProductVersion ?? string.Empty);
         return productVersion.Major switch
         {
-            >= 6 => "net6.0-windows",
-            4 => "net462",
-            _ => throw new NotSupportedException($".NET version {relevantVersionInfo.ProductVersion} is not supported.")
+            >= 6 => "net9.0-windows",
+            4 => "net472",
+            _ => throw new NotSupportedException(
+                $".NET version {relevantVersionInfo.ProductVersion} is not supported."
+            ),
         };
     }
 

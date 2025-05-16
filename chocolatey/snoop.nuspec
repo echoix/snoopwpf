@@ -35,15 +35,15 @@
 
     <file src="..\bin\$Configuration$\CommandLine.dll" target="tools\" />
     
-    <file src="..\bin\$Configuration$\net462\Snoop.Core*.config" target="tools\net462\" />
-    <file src="..\bin\$Configuration$\net462\Snoop.Core*.dll" target="tools\net462\" />
-    <file src="..\bin\$Configuration$\net462\Snoop.Core*.pdb" target="tools\net462\" />
-    <file src="..\bin\$Configuration$\net462\System.Management.Automation.dll" target="tools\net462\" />
+    <file src="..\bin\$Configuration$\net472\Snoop.Core*.config" target="tools\net472\" />
+    <file src="..\bin\$Configuration$\net472\Snoop.Core*.dll" target="tools\net472\" />
+    <file src="..\bin\$Configuration$\net472\Snoop.Core*.pdb" target="tools\net472\" />
+    <file src="..\bin\$Configuration$\net472\System.Management.Automation.dll" target="tools\net472\" />
 
-    <file src="..\bin\$Configuration$\net6.0-windows\Snoop.Core*.config" target="tools\net6.0-windows\" />
-    <file src="..\bin\$Configuration$\net6.0-windows\Snoop.Core*.dll" target="tools\net6.0-windows\" />
-    <file src="..\bin\$Configuration$\net6.0-windows\Snoop.Core*.pdb" target="tools\net6.0-windows\" />
-    <file src="..\bin\$Configuration$\net6.0-windows\Snoop.Core*.json" target="tools\net6.0-windows\" />
+    <file src="..\bin\$Configuration$\net9.0-windows\Snoop.Core*.config" target="tools\net9.0-windows\" />
+    <file src="..\bin\$Configuration$\net9.0-windows\Snoop.Core*.dll" target="tools\net9.0-windows\" />
+    <file src="..\bin\$Configuration$\net9.0-windows\Snoop.Core*.pdb" target="tools\net9.0-windows\" />
+    <file src="..\bin\$Configuration$\net9.0-windows\Snoop.Core*.json" target="tools\net9.0-windows\" />
 
     <file src="..\bin\$Configuration$\Snoop.GenericInjector.*.dll" target="tools\" />
     <file src="..\bin\$Configuration$\Snoop.GenericInjector.*.pdb" target="tools\" />

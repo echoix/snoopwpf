@@ -12,13 +12,13 @@ std::unique_ptr<FrameworkExecutor> GetExecutor(const std::wstring& framework)
 {
 	LogHelper::WriteLine(L"Trying to get executor for framework '%s'...", framework.c_str());
 
-	if (icase_cmp(framework, L"net6.0-windows"))
+	if (icase_cmp(framework, L"net9.0-windows"))
 	{
 		return std::make_unique<NetExecutor>();
 	}
 
 #ifndef NO_FULL_FRAMEWORK
-	if (icase_cmp(framework, L"net462"))
+	if (icase_cmp(framework, L"net472"))
 	{
 		return std::make_unique<NetFrameworkExecutor>();
 	}
