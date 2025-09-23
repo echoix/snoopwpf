@@ -29,6 +29,7 @@
       <Link>EnvironmentEx.cs</Link>
     </Compile>
     <Compile Include="..\Snoop.Core\Infrastructure\NativeMethods.cs" Link="NativeMethods.cs" />
+    <Compile Include="..\Snoop.Core\Infrastructure\LogHelper.cs" Link="LogHelper.cs" />
     <Compile Include="..\Snoop.Core\SettingsHelper.cs">
       <Link>SettingsHelper.cs</Link>
     </Compile>
@@ -64,5 +65,7 @@
       Targets="Build"
       Properties="RootBuild=False;Configuration=$(Configuration);PlatformTarget=ARM64;TargetFramework=net9.0-windows;DummyPropertyToForceReevaluateAfterRestore=true"
     />
+    <MSBuild Projects="$(MSBuildProjectFile)" Targets="Restore" Properties="RootBuild=False;Configuration=$(Configuration);PlatformTarget=ARM64;TargetFramework=$(MinCoreTargetFramework)" />
+    <MSBuild Projects="$(MSBuildProjectFile)" Targets="Build" Properties="RootBuild=False;Configuration=$(Configuration);PlatformTarget=ARM64;TargetFramework=$(MinCoreTargetFramework);DummyPropertyToForceReevaluateAfterRestore=true" />
   </Target>
 </Project>
