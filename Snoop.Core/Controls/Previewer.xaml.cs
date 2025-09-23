@@ -12,15 +12,25 @@ using Snoop.Windows;
 
 public partial class Previewer
 {
-    public static readonly RoutedCommand MagnifyCommand = new(nameof(MagnifyCommand), typeof(Previewer));
-    public static readonly RoutedCommand ScreenshotCommand = new(nameof(ScreenshotCommand), typeof(Previewer));
+    public static readonly RoutedCommand MagnifyCommand = new(
+        nameof(MagnifyCommand),
+        typeof(Previewer)
+    );
+    public static readonly RoutedCommand ScreenshotCommand = new(
+        nameof(ScreenshotCommand),
+        typeof(Previewer)
+    );
 
     public Previewer()
     {
         this.InitializeComponent();
 
-        this.CommandBindings.Add(new CommandBinding(MagnifyCommand, this.HandleMagnify, this.HandleCanMagnify));
-        this.CommandBindings.Add(new CommandBinding(ScreenshotCommand, this.HandleScreenshot, this.HandleCanScreenshot));
+        this.CommandBindings.Add(
+            new CommandBinding(MagnifyCommand, this.HandleMagnify, this.HandleCanMagnify)
+        );
+        this.CommandBindings.Add(
+            new CommandBinding(ScreenshotCommand, this.HandleScreenshot, this.HandleCanScreenshot)
+        );
     }
 
     #region Target
@@ -37,14 +47,12 @@ public partial class Previewer
     /// <summary>
     /// Target Dependency Property
     /// </summary>
-    public static readonly DependencyProperty TargetProperty =
-        DependencyProperty.Register(
-            nameof(Target),
-            typeof(object),
-            typeof(Previewer),
-            new FrameworkPropertyMetadata(
-                default,
-                OnTargetChanged));
+    public static readonly DependencyProperty TargetProperty = DependencyProperty.Register(
+        nameof(Target),
+        typeof(object),
+        typeof(Previewer),
+        new FrameworkPropertyMetadata(default, OnTargetChanged)
+    );
 
     /// <summary>
     /// Handles changes to the Target property.
@@ -77,14 +85,12 @@ public partial class Previewer
     /// <summary>
     /// IsActive Dependency Property
     /// </summary>
-    public static readonly DependencyProperty IsActiveProperty =
-        DependencyProperty.Register(
-            nameof(IsActive),
-            typeof(bool),
-            typeof(Previewer),
-            new FrameworkPropertyMetadata(
-                (bool)true,
-                OnIsActiveChanged));
+    public static readonly DependencyProperty IsActiveProperty = DependencyProperty.Register(
+        nameof(IsActive),
+        typeof(bool),
+        typeof(Previewer),
+        new FrameworkPropertyMetadata((bool)true, OnIsActiveChanged)
+    );
 
     /// <summary>
     /// Handles changes to the IsActive property.
@@ -141,10 +147,7 @@ public partial class Previewer
     {
         var visual = this.Target as Visual;
 
-        var dialog = new ScreenshotDialog
-        {
-            DataContext = visual
-        };
+        var dialog = new ScreenshotDialog { DataContext = visual };
 
         dialog.ShowDialogEx(this);
 
